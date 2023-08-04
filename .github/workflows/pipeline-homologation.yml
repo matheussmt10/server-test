@@ -1,17 +1,17 @@
-name: deploy-dev
+name: deploy-hml
 on:
   push:
     branches:
-      - develop
+      - homolog
   pull_request:
     branches:
-      - develop
+      - homolog
 
 jobs: 
   install:
     name: Installing Packages
     environment:
-      name: dev
+      name: hml
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

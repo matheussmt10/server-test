@@ -1,17 +1,17 @@
-name: deploy-dev
+name: deploy-prd
 on:
   push:
     branches:
-      - develop
+      - main
   pull_request:
     branches:
-      - develop
+      - main
 
 jobs: 
   install:
     name: Installing Packages
     environment:
-      name: dev
+      name: prd
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
