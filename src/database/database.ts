@@ -1,5 +1,5 @@
 import { Sequelize } from 'sequelize-typescript';
-import { Movie } from './models/Movie';
+import { Movie } from './models';
 
 export class Database {
   public static async getConnection() {
@@ -13,8 +13,8 @@ export class Database {
       models: [Movie],
       logging: false,
       retry: {
-        max: 3
-      }
+        max: 3,
+      },
     });
   }
 }
