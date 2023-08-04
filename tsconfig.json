@@ -1,0 +1,33 @@
+/// <reference types="vite/client" />
+{
+  "compilerOptions": {
+    "plugins": [
+      {
+        "transform": "ts-auto-mock/transformer",
+        "cacheBetweenTests": false
+      }
+    ],
+    "target": "es2020",
+    "esModuleInterop": true,
+    "noEmitOnError": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "downlevelIteration": true,
+    "module": "commonjs",
+    "declaration": true,
+    "outDir": "./build",
+    "strict": false,
+    "strictNullChecks": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+  },
+  "include": [
+    "src/**/*.ts",
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "types": [
+    "node",
+  ]
+}
