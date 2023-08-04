@@ -16,22 +16,11 @@ on:
       - main
       - homolog
 
-jobs: 
-  check-branch:
-    name: Check Branch
-    runs-on: ubuntu-latest
-    outputs:
-      run-quality: ${{ steps.set-run-quality.outputs.run-quality }}
-    steps:
-      - name: Set Run Quality
-        id: set-run-quality
-        run: echo "run-quality=${{ github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/homoloh' || github.ref == 'refs/heads/main' }}" 
-
+jobs:
   install-dev:
     name: prepare-dev
     runs-on: ubuntu-latest
-    needs: check-branch
-    if: needs.check-branch.outputs.run-quality == 'true'
+    if: github.ref == 'refs/heads/develop' || startsWith(github.ref, 'refs/heads/feature/') || startsWith(github.ref, 'refs/heads/feat/') || startsWith(github.ref, 'refs/heads/fix/') || startsWith(github.ref, 'refs/heads/hotfix/')
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -44,13 +33,12 @@ jobs:
         
       - name: Install dependencies
         run: yarn install
-
+      # Adicione aqui os passos específicos para o ambiente dev, se necessário.
 
   install-hml:
     name: prepare-hml
     runs-on: ubuntu-latest
-    needs: check-branch
-    if: needs.check-branch.outputs.run-quality == 'true' && github.ref == 'refs/heads/homolog'
+    if: github.ref == 'refs/heads/homolog'
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -63,13 +51,12 @@ jobs:
         
       - name: Install dependencies
         run: yarn install
-
+      # Adicione aqui os passos específicos para o ambiente hml, se necessário.
 
   install-prod:
     name: prepare-prod
     runs-on: ubuntu-latest
-    needs: check-branch
-    if: needs.check-branch.outputs.run-quality == 'true' && github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main'
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -82,6 +69,7 @@ jobs:
         
       - name: Install dependencies
         run: yarn install
+      # Adicione aqui os passos específicos para o ambiente prod, se necessário.
 
   quality:
     name: quality
@@ -90,6 +78,7 @@ jobs:
     strategy:
       matrix:
         environment: [dev, hml, prd]
+      fail-fast: false
     steps:
       - name: Checkout
         uses: actions/checkout@v3
