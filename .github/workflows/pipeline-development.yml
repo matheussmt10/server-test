@@ -1,7 +1,7 @@
 name: Pipeline Development
 on:
   push:
-  branch: [ develop ]
+    branch: [ develop ]
   pull_request:
     branch: [ main ]
 
