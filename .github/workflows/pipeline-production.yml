@@ -1,9 +1,10 @@
 name: deploy-prd
 on:
   push:
-    branch: [ main ]
+    - main
   pull_request:
-    branch: [ main ]
+    branch:
+      - main
 
 jobs: 
   install:

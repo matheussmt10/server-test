@@ -1,9 +1,10 @@
 name: deploy-dev
 on:
   push:
-    branch: [ develop ]
+    - develop
   pull_request:
-    branch: [ develop ]
+    branch:
+      - develop
 
 jobs: 
   install:
