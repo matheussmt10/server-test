@@ -46,7 +46,7 @@ jobs:
       - name: Run ts-prune 
         run: yarn ts-prune --error
 
-  quality:
+  tests:
     name: tests
     runs-on: ubuntu-latest
     needs: [quality]
