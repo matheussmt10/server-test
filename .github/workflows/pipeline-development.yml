@@ -1,5 +1,9 @@
 name: Pipeline Development
-on: [pull_request, develop]
+on:
+  push:
+  branch: [ develop ]
+  pull_request:
+    branch: [ main ]
 
 jobs: 
   install:
