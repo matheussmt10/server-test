@@ -1,9 +1,10 @@
 name: deploy-hml
 on:
   push:
-    - homolog
+    branches:
+      - homolog
   pull_request:
-    branch:
+    branches:
       - homolog
 
 jobs: 
