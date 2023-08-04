@@ -1,10 +1,11 @@
-import express from 'express'
+import express from 'express';
+import cors from 'cors';
 import { Database } from './database';
-import { router } from './routes'
-import cors from 'cors'
+import { router } from './routes';
 
 export class App {
   public server: express.Application;
+
   constructor() {
     this.server = express();
     this.middleware();
@@ -12,50 +13,20 @@ export class App {
     this.connectionDb();
   }
 
-  private router(){
+  private router() {
     this.server.use(router);
   }
 
-  private middleware(){
-    this.server.use(cors())
+  private middleware() {
+    this.server.use(cors());
     this.server.use(express.json());
   }
 
-  private async connectionDb(){
-    await Database.getConnection()
-    console.log('servidor conectado')
-  }  
+  private async connectionDb() {
+    await Database.getConnection();
+    console.log('servidor conectado');
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import express from 'express'
 
@@ -86,11 +57,9 @@ export class App {
 
 // route.get('/sendmovie', (req, res) => {
 //   res.json({ message: 'hello world with Typescript' })
-  
-  
+
 // })
 
 // app.use(route)
-
 
 // app.listen(3333, () => console.log('server running on port 3333'))

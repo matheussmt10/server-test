@@ -1,72 +1,45 @@
-import { Column, DataType, Model, Table } from "sequelize-typescript";
+import {
+  Column, DataType, Model, Table
+} from 'sequelize-typescript';
 
 @Table({
-    tableName: 'movie',
-    modelName: 'Movie',
-    version: false,
-    underscored: true,
-    timestamps: false
+  tableName: 'movie',
+  modelName: 'Movie',
+  version: false,
+  underscored: true,
+  timestamps: false
 })
 
-
-export class Movie extends Model{
+export class Movie extends Model {
     @Column({
-        type: DataType.INTEGER,
-        autoIncrement: true,
-        allowNull: false,
-        primaryKey: true
- 
-    })
-    id_movie: string;
-
-    @Column({
-        type: DataType.STRING,
-        allowNull: false,
+      type: DataType.INTEGER,
+      autoIncrement: true,
+      allowNull: false,
+      primaryKey: true
 
     })
-    title: string;
+      id_movie: string;
 
     @Column({
-        type: DataType.STRING,
-        allowNull: false,
+      type: DataType.STRING,
+      allowNull: false,
+
     })
-    background_img: string;
+      title: string;
 
     @Column({
-        type: DataType.REAL,
-        allowNull: false,
- 
+      type: DataType.STRING,
+      allowNull: false,
     })
-    rating: string;
+      background_img: string;
 
+    @Column({
+      type: DataType.REAL,
+      allowNull: false,
+
+    })
+      rating: string;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import { DataTypes } from "sequelize";
 // import sequelizeConnection from "../index";
@@ -90,6 +63,5 @@ export class Movie extends Model{
 //         type: DataTypes.FLOAT,
 //         allowNull: false,
 //     },
-    
 
 // })

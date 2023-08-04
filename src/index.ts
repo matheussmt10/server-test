@@ -1,3 +1,3 @@
-import { App } from "./server";
+import { App } from './server';
 
-new App().server.listen(3000)
+new App().server.listen(3000);
