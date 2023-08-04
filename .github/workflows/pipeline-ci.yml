@@ -23,7 +23,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: node_modules
-          key: ${{ runner.os }}-dev-${{ hashFiles('**/yarn.lock') }}
+          key: "${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}"
 
       - name: Install dependencies
         run: yarn install
@@ -40,7 +40,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+          key: "${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}"
 
       - name: Run lint
         run: yarn lint
@@ -57,7 +57,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+          key: "${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}"
 
       - name: Run tests
         run: echo "tests is running..."
@@ -74,7 +74,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+          key: "${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}"
 
       - name: Run ts-prune
         run: yarn ts-prune --error
@@ -91,7 +91,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+          key: "${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}"
 
       - name: Run tests
         run: echo "deploy is running..."
